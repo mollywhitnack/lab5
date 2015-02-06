@@ -5,15 +5,27 @@ $(document).ready(function() {
 	initializePage();
 })
 
-/*
- * Function that is called when the document is ready.
- */
-function initializePage() {
-	console.log("Javascript connected!");
+
+//<strong>$(this).text</strong><strong>(</strong>anagrammedName($(this).text())<strong>)</strong>;
+
+function initializePage() 
+{
+  console.log("Javascript connected!");
+  $('.friendName').click(listenerfunction);
 }
+
+function listenerfunction(e)
+{
+	e.preventDefault();
+	console.log("friend name", $(this).text());
+	$(this).text(anagrammedName($(this).text()));
+}
+
+
 
 function anagrammedName(name) {
 	// Thanks, Internet Anagram Server!
+	//name.preventDefault();
 	
 	if (name == "Doug Engelbart") {
 		return "Notable Grudge";
@@ -40,7 +52,7 @@ function anagrammedName(name) {
 		return "Gear Chopper";
 	}
 	else {
-		console.log(name + " not known for anagramming.");
+		console.log("Start"+name+"end" + " not known for anagramming.");
 		return name;
 	}
 }
